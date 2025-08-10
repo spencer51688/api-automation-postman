@@ -1,0 +1,128 @@
+{
+	"info": {
+		"_postman_id": "a98341cb-dcd9-480c-890c-3484ee947495",
+		"name": "test_col",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "test",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code is 200 \"] = responseCode.code === 200;\r",
+							"tests[\"Response time is less than 1000ms \"] = responseTime < 1000;\r",
+							"\r",
+							"pm.test(\"check response body\",function(){\r",
+							"    var strGetBody=JSON.parse(responseBody);\r",
+							"    pm.expect(strGetBody.resultCode).to.eql(\"PCE001\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"host\": \"WEB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{strUrl}}",
+					"host": [
+						"{{strUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_error",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"tests[\"Status code is 400 \"] = responseCode.code === 400;\r",
+							"tests[\"Response time is less than 1000ms \"] = responseTime < 1000;\r",
+							"\r",
+							"pm.test(\"check response body\",function(){\r",
+							"    var strGetBody=JSON.parse(responseBody);\r",
+							"    pm.expect(strGetBody.resultCode).to.eql(\"PCE001\");\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"host\": \"WEB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{strUrl}}",
+					"host": [
+						"{{strUrl}}"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "test_skip",
+			"event": [
+				{
+					"listen": "test",
+					"script": {
+						"exec": [
+							"// tests[\"Status code is 200 \"] = responseCode.code === 200;\r",
+							"// tests[\"Response time is less than 1000ms \"] = responseTime < 1000;\r",
+							"\r",
+							"pm.test(\"this is skip\",function(){\r",
+							"    pm.test.skip(\"skip\", () => {});\r",
+							"});"
+						],
+						"type": "text/javascript"
+					}
+				}
+			],
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n  \"host\": \"WEB\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "{{strUrl}}",
+					"host": [
+						"{{strUrl}}"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
