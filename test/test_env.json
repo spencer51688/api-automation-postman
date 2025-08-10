@@ -4,7 +4,7 @@
 	"values": [
 		{
 			"key": "strUrl",
-			"value": "https://cartcloud.momoshop.com.tw/api/shoppingcart/query/getEachCartPICount/1",
+			"value": "https://cartcloud.momoshop.com.tw/api/shoppingcart/query/getEachCartPICount/123",
 			"type": "default",
 			"enabled": true
 		}
